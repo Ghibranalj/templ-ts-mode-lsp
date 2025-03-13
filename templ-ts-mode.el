@@ -338,8 +338,11 @@
 
   (templ-ts--setup))
 
-(add-to-list 'eglot-server-programs '(templ-ts-mode
-                                      "templ" "lsp"))
+(lsp-register-client
+ (make-lsp-client
+  :new-connection (lsp-stdio-connection '("templ" "lsp"))
+  :major-modes '(templ-ts-mode)
+  :server-id 'templ-ts-lsp))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.templ\\'" . templ-ts-mode))
