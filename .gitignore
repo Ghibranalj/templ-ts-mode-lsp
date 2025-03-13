@@ -15,3 +15,5 @@
 
 # Nix testing
 /result
+
+flake.lock
