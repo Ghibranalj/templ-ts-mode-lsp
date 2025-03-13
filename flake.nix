@@ -24,7 +24,7 @@
       grammarRev = "592faa3186ef857c92e4bd1c31d73c07a4a334db";
   in {
     packages = forAllSystems ({ system, pkgs }: rec {
-      default = templ-mode-emacs29;
+      default = templ-mode-emacs;
 
       templ-grammar = pkgs.tree-sitter.buildGrammar {
         language = "tree-sitter-templ";
@@ -43,7 +43,7 @@
         src = ./.;
       };
 
-      templ-mode-emacs29 = templ-mode (pkgs.emacsPackagesFor pkgs.emacs29);
+      templ-mode-emacs = templ-mode (pkgs.emacsPackagesFor pkgs.emacs);
     });
 
     devShell = forAllSystems ({ system, pkgs }:
